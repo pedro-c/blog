@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>How to set up a NodeJS website with Authentication and Back office (and Blog)</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="Pedro Costa" />
+  <meta name="description" content="In this tutorial we&amp;rsquo;re going to build a NodeJS website with the following features: - User authentication - Back office - Blog (optional)
+
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@pedrodc23" />
+    <meta name="twitter:title" content="How to set up a NodeJS website with Authentication and Back office (and Blog)" />
+    <meta name="twitter:description" content="In this tutorial we&amp;rsquo;re going to build a NodeJS website with the following features: - User authentication - Back office - Blog (optional)
+
+" />
+    <meta name="twitter:image" content="http://pedro-c.github.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.26" />
+
+
+<link rel="canonical" href="http://pedro-c.github.io/post/creating-a-new-theme/" />
+<link rel="alternative" href="http://pedro-c.github.io/index.xml" title="Pedro Costa" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Pedro Costa" />
+<meta name="msapplication-tooltip" content="Pedro Costa" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="http://pedro-c.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="http://pedro-c.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="http://pedro-c.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="http://pedro-c.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="http://pedro-c.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="http://pedro-c.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.1/video-js.min.css" />
+
+<link rel="stylesheet" href="http://pedro-c.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.1/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/2014.01.31/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.0/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+        <a title="Go to comments" class="to-comment" href="#disqus_thread"><span class="icon icon-comment"></span></a>
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <a  href="https://pedro-c.github.io/">
+    <img class="avatar" src="http://pedro-c.github.io/img/avatar.jpg" alt="Avatar">
+  </a>
+  
+  <h2 class="title">Pedro Costa</h2>
+  
+  <p class="subtitle">On the shoulders of giants</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item  is-active"><a href="http://pedro-c.github.io/">Blog</a></li>
+      
+        <li class="menu-item "><a href="https://pedro-c.github.com/cv">CV</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:pedrodc@protonmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/pedrodc" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/pedrodc23" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//www.linkedin.com/in/pedrodcosta" title="Linkedin"><span class="icon icon-linkedin"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">How to set up a NodeJS website with Authentication and Back office (and Blog)</h1>
+      <p class="post-meta">@Pedro Costa · Sep 1, 2017 · 6 min read</p>
+    </header>
+    <article class="post-content"><p>In this tutorial we&rsquo;re going to build a NodeJS website with the following features:
+- User authentication
+- Back office
+- Blog (optional)</p>
+
+<p></p>
+
+<p>The first to parts of the tutorial are meant to quickly set you up and running. The third part is a more in depth explanation of some points I find important, so feel free to read them later as you need.</p>
+
+<p>We&rsquo;ll be using <a href="http://keystonejs.com">KeystoneJS</a> , which is a promising framework, based on <a href="http://expressjs.com/">ExpressJS</a>, that allows for a quick setup of the previous features.</p>
+
+<p><strong>Prerequisites:</strong>
+- <a href="https://nodejs.org/en/">Node.js 0.10+</a></p>
+
+<h2 id="initial-set-up">Initial set-up</h2>
+
+<p><strong>Install the generator</strong>
+You&rsquo;ll be using the KeystoneJS generator made with Yeoman. In your terminal run:</p>
+
+<pre><code>$ npm install -g generator-keystone
+</code></pre>
+
+<p><strong>Create a folder for your project</strong></p>
+
+<pre><code>$ cd my-test-project
+</code></pre>
+
+<p><strong>Run the generator</strong></p>
+
+<pre><code>$ yo keystone
+</code></pre>
+
+<p>The generator will ask you a few questions about what features you&rsquo;d like to include.</p>
+
+<p>The templates question may cause some confusion:
+*Would you like to use Pug, Nunjucks, Twig or Handlebars for templates? [pug | nunjucks | twig | hbs] ?  *If you&rsquo;re starting from scratch I recommend <a href="https://pugjs.org/api/getting-started.html">Pug</a> it&rsquo;s simple and powerful, though if you&rsquo;re porting an existing project, <a href="http://handlebarsjs.com/">Handlebars</a> (hbs) may be easier because you can use the existing html without any change.</p>
+
+<p>I also strongly advice saying yes to extra comments in the code question.</p>
+
+<p>Once finished your project will have an admin UI and all the dependencies installed.</p>
+
+<p>So you just created your first KeystoneJS project, congrats!</p>
+
+<p>To run your project you first have to connect to a database, so let&rsquo;s continue :)</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p><strong>Project Structure</strong></p>
+
+<p>At first the amount of folders and files may seem overwhelming so let&rsquo;s break it.</p>
+
+<pre><code>|--models
+|  Your application's database models
+|--public
+|  Static files (css, js, images, etc.) that are publicly available
+|--routes
+|  |--views
+|  |  Your application's view controllers
+|  |--index.js
+|  |  Initialises your application's routes and views
+|  |--middleware.js
+|  |  Custom middleware for your routes
+|--templates
+|  |--layouts
+|  |  Base .pug layouts go in here
+|  |--mixins
+|  |  Common .pug mixins go in here
+|  |--views
+|  |  Your application's view templates
+|--updates
+|  Data population and migration scripts
+|--package.json
+|  Project configuration for npm
+|--keystone.js
+|  Main script that starts your application
+</code></pre>
+
+<p>Don&rsquo;t worry we&rsquo;ll explore more in depth some of these files later.</p>
+
+<p><strong>Database set-up (the tricky part)</strong></p>
+
+<p>The first thing you want to do is connect to a database. To make it easier I advise using a Database-as-a-Service product such as <a href="https://mlab.com/">mlab</a>.</p>
+
+<p>After creating a free account create a new db by clicking on &ldquo;+ Create new&rdquo; then the Sandbox option (free), select Europe as the region and give it a name.</p>
+
+<p>Now you have to setup the admin user of your newly created db. So click on the db and then on the tab Users and create a new user.</p>
+
+<p>Next, copy the database URI which is at the top of the page (ex: mongodb://<dbuser>:<dbpassword>@ds157853.mlab.com:57835/yournewdb) to the bottom of the .env file at the root of your project, like so:
+undefinedMONGO_URI=mongodb:<dbuser>:<dbpassword>@ds157853.mlab.com:57835/yournewdb
+(The .env should never be uploaded to your github repository!).</p>
+
+<p>Notice that I had the &lsquo;MONGO_URI=&rsquo; to the beginning. Also don&rsquo;t forget to change <dbuser> and <dbpassword> to the user and password you&rsquo;ve just created at mLab.</p>
+
+<p>Finally let&rsquo;s see our project running, in your terminal type:</p>
+
+<pre><code>$ node keystone
+</code></pre>
+
+<p>Then open <a href="http://localhost:3000">http://localhost:3000</a> to view it in your browser and voylá!</p>
+
+<p>Now you may be wondering, that&rsquo;s nice but what just happened?</p>
+
+<p>Well when launching for the first time the script in /updates/0.0.1-admin.js will create your first User. Which is an admin. So if you sign-in in your website with the credentials you set up in the generator you&rsquo;ll be able to manage all your website&rsquo;s database related data such as users and blog posts. Admins have access to the keystone back office while regular Users may only have access to certain parts of your website, that&rsquo;s up to you.
+##</p>
+
+<h2 id="now-you-have-a-working-web-app-and-may-feel-free-to-explore-the-rest-by-yourself"><strong><em>Now you have a working web app and may feel free to explore the rest by yourself !</em></strong></h2>
+
+<p>There&rsquo;s more to it so in the next part I will explain a bit more some of the features of the framework.</p>
+
+<h2 id="the-next-part-aka-understanding-keystonejs">The next part (aka. Understanding KeystoneJS)</h2>
+
+<p><strong>Models</strong>
+So let&rsquo;s start with the models folder, here we define our database models, such as the users or the blog posts in this example.
+In User.js define the user and add properties such as name, email, password and so on and set several properties. For example you can make the e-mail be unique and say which fields are required. You can get a more in depth understanding <a href="http://keystonejs.com/docs/database/">here</a>.</p>
+
+<p><strong>keystone.js</strong>
+This is your app&rsquo;s starting point. And the one of the two places where you can customize the Admin UI (aka back office).</p>
+
+<p>The init function you&rsquo;ll have something like:</p>
+
+<pre><code>keystone.init({
+	'name': 'NIAEFEUP Website',
+	'brand': 'NIAEFEUP Website',
+	'less': 'public',
+	'static': 'public',
+	'favicon': 'public/favicon.ico',
+	'views': 'templates/views',
+	'view engine': 'pug',
+	'auto update': true,
+	'session': true,
+	'auth': true,
+	'user model': 'User',
+});
+</code></pre>
+
+<p>If you want to change the keystone logo you have to append to the function the following line:</p>
+
+<pre><code>'signin logo': ['../../images/logo_aefeup.png', 230, 100],
+
+</code></pre>
+
+<p>I also usually add the following lines in order to redirect to the home page when signing out/in and override the &lsquo;/keystone&rsquo; in the url bar.</p>
+
+<pre><code>	'signin redirect' : '/',
+	'signout redirect' : '/',
+	'signin url' : '/signin',
+	'signout url' : '/signout',
+</code></pre>
+
+<p>That&rsquo;s it about keystone.js everything else you&rsquo;ll find well explained in the code comments or in the documentation.</p>
+
+<p><strong>Routes</strong>
+This is probably the most important part. Here you define the behaviour of your webapp.
+The middleware.js is a starting point to some features in your app such as flash messages, enforcing user auth and so on. I&rsquo;ll focus on the initLoclas function. Here you set the nav links of your page and to which view they&rsquo;ll point.</p>
+
+<p>But where the magic happens is in the index.js. Here you define the routes to your website, but what are the routes?
+Simply the links in the url bar that point to the desired page.</p>
+
+<p>You can pass non mandatory arguments like this:</p>
+
+<pre><code>app.get('/blog/:category?', routes.views.blog);
+</code></pre>
+
+<p>or mandatory arguments such:</p>
+
+<pre><code>app.get('/blog/post/:post', routes.views.post);
+</code></pre>
+
+<p>or even none:</p>
+
+<pre><code>app.get('/', routes.views.index);
+</code></pre>
+
+<p>You can also enforce the user to be authenticated by adding one more parameter (&lsquo;middleware.requireUser&rsquo;):</p>
+
+<pre><code>app.get('/profile', middleware.requireUser, routes.views.profile);
+</code></pre>
+
+<p>In the <strong>views</strong> folder is where you actually define the logic for each page and render the desired template.</p>
+
+<p><strong>Templates</strong></p>
+
+<p>First you have the &lsquo;layouts&rsquo; folder, this is where you define the default layout of your website, the html header, body and footer.
+So this is the general layout and inside the body there&rsquo;s only the header. The body content is defined in the views folder and will be displayed accordingly to url you&rsquo;ve typed as defined in the routes.
+The views folder contains the body content for each page in our website. You can also implement your own version of errors page such as 404 and 500 by adding these templates in the errors folder.</p>
+
+<p><strong>Public Assets</strong>
+Keystone will serve any static assets you place in the public directory. For example your css files or your js scripts and libs (bootstrap, jquery, etc) This path is specified in keystone.js by the static option.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="http://pedro-c.github.io/tags/nodejs"><span class="tag">NodeJS</span></a></li>
+        
+          <li><a href="http://pedro-c.github.io/tags/keystonejs"><span class="tag">KeystoneJS</span></a></li>
+        
+          <li><a href="http://pedro-c.github.io/tags/blog"><span class="tag">Blog</span></a></li>
+        
+          <li><a href="http://pedro-c.github.io/tags/authentication"><span class="tag">Authentication</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.
+      </p>
+    </footer>
+    
+      <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "disqus_shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 Pedro Costa</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script src="//cdn.bootcss.com/video.js/6.2.1/video.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="http://pedro-c.github.io/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+baseURL = "http://pedro-c.github.io/"
+languageCode = "en"
+title = "Pedro Costa"
+enableRobotsTXT = true
+pygmentsuseclasses = true
+PygmentsCodeFences = true
+canonifyurls = true
+
+# Disqus Username
+disqusShortname = "disqus_shortname"
+
+# Copyright of your post
+copyright = "© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce."
+
+# Initial site menu, you can extend menu with content.
+[[menu.main]]
+  name = "Blog"
+  weight = 10
+  identifier = "home"
+  url = "/"
+
+[[menu.main]]
+  name = "CV"
+  weight = 20
+  identifier = "works"
+  url = "https://pedro-c.github.com/cv"
+
+# Add your own params here
+[params]
+  author = "Pedro Costa"
+  avatar = "/img/avatar.jpg"
+  seotitle = "Pedro Costa"
+  subtitle = "On the shoulders of giants"
+  description = "Pedro Costa's blog."
+  paginate = 10
+
+  # Choose your social networks
+  email = "pedrodc@protonmail.com"
+  github = "pedrodc"
+  twitter = "pedrodc23"
+  linkedin = "pedrodcosta"
