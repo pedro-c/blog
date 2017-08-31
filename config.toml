@@ -1,4 +1,4 @@
-baseURL = "http://pedro-c.github.io/blog/"
+baseURL = "https://pedro-c.github.io/blog/"
 languageCode = "en"
 title = "Pedro Costa"
 enableRobotsTXT = true
