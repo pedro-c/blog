@@ -28,7 +28,7 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 # Add your own params here
 [params]
   author = "Pedro Costa"
-  avatar = "/static/assets/images/avatar.jpg"
+  avatar = "/img/avatar.jpg"
   seotitle = "Pedro Costa"
   subtitle = "On the shoulders of giants"
   description = "Pedro Costa's blog."
